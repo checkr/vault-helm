@@ -13,6 +13,9 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
+    external-dns.alpha.kubernetes.io/hostname: vault.eu.checkrhq-staging.net
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:eu-west-1:123168154964:certificate/230efb7d-3fdc-41a7-b505-f4848c4b8d14"
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
     # This must be set in addition to publishNotReadyAddresses due
     # to an open issue where it may not work:
     # https://github.com/kubernetes/kubernetes/issues/58662

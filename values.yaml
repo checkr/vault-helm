@@ -35,6 +35,9 @@ injector:
   # Mount Path of the Vault Kubernetes Auth Method.
   authPath: "auth/kubernetes"
 
+  certs:
+    caBundle: ""
+
   # Configures the log verbosity of the injector. Supported log levels: Trace, Debug, Error, Warn, Info
   logLevel: "info"
 
@@ -247,14 +250,14 @@ server:
 
     # Configures the service type for the main Vault service.  Can be ClusterIP
     # or NodePort.
-    #type: ClusterIP
+    type: LoadBalancer
 
     # If type is set to "NodePort", a specific nodePort value can be configured,
     # will be random if left blank.
     #nodePort: 30000
 
     # Port on which Vault server is listening
-    port: 8200
+    port: 443
     # Target port to which the service should be mapped to
     targetPort: 8200
     # Extra annotations for the service definition. This should be a multi-line
